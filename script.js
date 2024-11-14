@@ -1,8 +1,22 @@
 document.addEventListener('DOMContentLoaded', function() {
-    // Hide scrollbar during intro
+    const introScreen = document.querySelector('.intro-screen');
+    
+    // After 4 seconds, add the fade-out class
+    setTimeout(() => {
+        introScreen.classList.add('fade-out');
+        
+        // Remove the intro screen from DOM after fade animation
+        setTimeout(() => {
+            introScreen.style.display = 'none';
+        }, 500); // 500ms matches the transition duration in CSS
+    }, 4000); // 4000ms = 4 seconds
+});
+
+document.addEventListener('DOMContentLoaded', function() {
+    
     document.body.style.overflow = 'hidden';
     
-    // Enable scrolling after intro
+    
     setTimeout(() => {
         document.body.style.overflow = 'auto';
     }, 4500); // 4.5 seconds
