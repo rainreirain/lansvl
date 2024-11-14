@@ -1,3 +1,13 @@
+document.addEventListener('DOMContentLoaded', function() {
+    // Hide scrollbar during intro
+    document.body.style.overflow = 'hidden';
+    
+    // Enable scrolling after intro
+    setTimeout(() => {
+        document.body.style.overflow = 'auto';
+    }, 4500); // 4.5 seconds
+});
+
 document.getElementById('peripherals-button').addEventListener('click', function() {
     // Show Peripherals content and hide Others content
     document.getElementById('peripherals-content').style.display = 'block';
@@ -59,39 +69,56 @@ function showSection(section) {
     }
 }
 
-// Add modal functionality
+// Update modal functionality
 document.addEventListener('DOMContentLoaded', function() {
     const modal = document.getElementById('imageModal');
     const modalImg = document.getElementById('modalImage');
     const closeBtn = document.getElementsByClassName('close-modal')[0];
     
-    // Get all images from the detail sections
-    const images = document.querySelectorAll('#pc-setup-section img, #pc-specs-section .spec-item img, #wallpapers-section .spec-item img');
+    // Get all images from PC Setup, PC Specs, and Wallpapers sections
+    const modalImages = document.querySelectorAll(
+        '#pc-setup-section img, ' +
+        '#pc-specs-section .spec-item img, ' +
+        '#wallpapers-section .spec-item img'
+    );
     
     // Add click event to all images
-    images.forEach(img => {
-        img.addEventListener('click', function() {
-            modal.style.display = "flex";
+    modalImages.forEach(img => {
+        img.addEventListener('click', function(e) {
+            e.stopPropagation(); // Prevent event bubbling
+            modal.classList.add('show');
             modalImg.src = this.src;
         });
     });
     
     // Close modal when clicking X
     closeBtn.addEventListener('click', function() {
-        modal.style.display = "none";
+        modal.classList.remove('show');
     });
     
     // Close modal when clicking outside the image
     modal.addEventListener('click', function(e) {
         if (e.target === modal) {
-            modal.style.display = "none";
+            modal.classList.remove('show');
         }
     });
     
     // Close modal with Escape key
     document.addEventListener('keydown', function(e) {
-        if (e.key === 'Escape' && modal.style.display === "flex") {
-            modal.style.display = "none";
+        if (e.key === 'Escape' && modal.classList.contains('show')) {
+            modal.classList.remove('show');
+        }
+    });
+
+    // Handle image loading
+    const allImages = document.querySelectorAll('img');
+    allImages.forEach(img => {
+        if (img.complete) {
+            img.classList.remove('loading');
+        } else {
+            img.addEventListener('load', function() {
+                img.classList.remove('loading');
+            });
         }
     });
 });
