@@ -9,6 +9,15 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
+    <div class="intro-screen">
+        <div class="intro-content">
+            <div class="intro-text">Created by</div>
+            <div class="creator-name">Andres, Lance</div>
+            <div class="loading-dots">
+                <span>.</span><span>.</span><span>.</span>
+            </div>
+        </div>
+    </div>
     <div class="container">
         <div class="profile">
             <img src="shin.jpg" alt="Profile Picture" class="profile-pic">
@@ -65,7 +74,7 @@
                 </a>
                 <div class="spotify-embed">
                     <iframe 
-                        src="https://open.spotify.com/embed/track/5lYN6iWRzaWm08s0Fhw6eM?utm_source=generator&theme=0" 
+                        src="https://open.spotify.com/embed/track/0MJ5wKsPEeihONNfugHGy7?utm_source=generator" 
                         width="100%" 
                         height="80" 
                         frameBorder="0" 
@@ -73,6 +82,9 @@
                         allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
                         loading="lazy">
                     </iframe>
+                </div>
+                <div class="rotating-logo">
+                    <img src="react.png" alt="React Logo" class="react-logo">
                 </div>
             </div>
         </div>
@@ -183,5 +195,10 @@
         <span class="close-modal">&times;</span>
         <img id="modalImage" class="modal-content">
     </div>
+
+    <!-- Add this before the closing container div -->
+    <footer class="copyright">
+        © Andres, Lance Ranielle J.
+    </footer>
 </body>
 </html>
