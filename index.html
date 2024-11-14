@@ -6,6 +6,7 @@
     <title>lansvl.exe</title>
     <link rel="stylesheet" href="styles.css">
     <link rel="icon" href="black.png" type="image/png">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&family=Montserrat:wght@700&display=swap" rel="stylesheet">
 </head>
 <body>
     <div class="container">
@@ -62,6 +63,17 @@
                 <a href="https://exitlag.com/pricing" target="_blank" class="link-button">
                     <img src="exitlag.jpg" alt="ExitLag Icon">ExitLag Referral
                 </a>
+                <div class="spotify-embed">
+                    <iframe 
+                        src="https://open.spotify.com/embed/track/5lYN6iWRzaWm08s0Fhw6eM?utm_source=generator&theme=0" 
+                        width="100%" 
+                        height="80" 
+                        frameBorder="0" 
+                        allowfullscreen="" 
+                        allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" 
+                        loading="lazy">
+                    </iframe>
+                </div>
             </div>
         </div>
 
@@ -165,5 +177,11 @@
     </div>
 
     <script src="script.js"></script>
+
+    <!-- Add this before </body> -->
+    <div id="imageModal" class="modal">
+        <span class="close-modal">&times;</span>
+        <img id="modalImage" class="modal-content">
+    </div>
 </body>
 </html>
